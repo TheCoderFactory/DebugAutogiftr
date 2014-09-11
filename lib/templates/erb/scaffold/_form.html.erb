@@ -3,7 +3,7 @@
 
   <%- attributes.each do |attribute| -%>
   	<div class="form-group">
-    	<%%= f.<%= attribute.reference? ? :association : :input, input_html: { class: 'form-control' } %> :<%= attribute.name %> %>
+    	<%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, input_html: { class: 'form-control' } %>
   	</div>
   <%- end -%>
 
