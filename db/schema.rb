@@ -11,7 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911085115) do
+ActiveRecord::Schema.define(version: 20140911102648) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "picture"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.date     "dob"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
+  create_table "gift_occasions", force: true do |t|
+    t.integer  "gift_id"
+    t.integer  "occasion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gift_occasions", ["gift_id"], name: "index_gift_occasions_on_gift_id"
+  add_index "gift_occasions", ["occasion_id"], name: "index_gift_occasions_on_occasion_id"
+
+  create_table "gifts", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price"
+    t.string   "image"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "occasions", force: true do |t|
+    t.integer  "recipient_id"
+    t.string   "name"
+    t.string   "occasion_type"
+    t.string   "message"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "occasions", ["recipient_id"], name: "index_occasions_on_recipient_id"
+
+  create_table "recipients", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "suburb"
+    t.string   "postcode"
+    t.string   "state"
+    t.string   "country"
+    t.string   "relationship"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipients", ["user_id"], name: "index_recipients_on_user_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

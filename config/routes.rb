@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :gifts
+
+  resources :occasions
+
+  resources :recipients
+
+  resources :accounts
+
   devise_for :users
   # get 'home/index'
 
