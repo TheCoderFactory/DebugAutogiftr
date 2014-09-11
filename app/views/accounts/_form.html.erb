@@ -1,0 +1,26 @@
+<%= simple_form_for(@account) do |f| %>
+  <%= f.error_notification %>
+
+  	<div class="form-group">
+    	<%= f.input :first_name, input_html: { class: 'form-control' } %>
+  	</div>
+  	<div class="form-group">
+    	<%= f.input :last_name, input_html: { class: 'form-control' } %>
+  	</div>
+  	<div class="form-group">
+    	<%= f.input :picture, input_html: { class: 'form-control' } %>
+  	</div>
+  	<div class="form-group">
+    	<%= f.input :phone, input_html: { class: 'form-control' } %>
+  	</div>
+  	<div class="form-group">
+    	<%= f.association :user, input_html: { class: 'form-control' } %>
+  	</div>
+  	<div class="form-group">
+    	<%= f.input :dob, input_html: { class: 'form-control' } %>
+  	</div>
+
+  <div class="form-group">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

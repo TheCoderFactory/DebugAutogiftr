@@ -1,0 +1,41 @@
+<h1>Listing recipients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Street</th>
+      <th>Suburb</th>
+      <th>Postcode</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Relationship</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipients.each do |recipient| %>
+      <tr>
+        <td><%= recipient.user %></td>
+        <td><%= recipient.first_name %></td>
+        <td><%= recipient.last_name %></td>
+        <td><%= recipient.street %></td>
+        <td><%= recipient.suburb %></td>
+        <td><%= recipient.postcode %></td>
+        <td><%= recipient.state %></td>
+        <td><%= recipient.country %></td>
+        <td><%= recipient.relationship %></td>
+        <td><%= link_to 'Show', recipient %></td>
+        <td><%= link_to 'Edit', edit_recipient_path(recipient) %></td>
+        <td><%= link_to 'Destroy', recipient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipient', new_recipient_path %>

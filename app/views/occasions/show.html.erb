@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @occasion.recipient %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @occasion.name %>
+</p>
+
+<p>
+  <strong>Occasion type:</strong>
+  <%= @occasion.occasion_type %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @occasion.message %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @occasion.date %>
+</p>
+
+<%= link_to 'Edit', edit_occasion_path(@occasion) %> |
+<%= link_to 'Back', occasions_path %>
