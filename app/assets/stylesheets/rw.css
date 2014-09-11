@@ -27,9 +27,9 @@ body{
 	opacity: 0;
 	overflow: hidden;
 	/*color: #6b969d;*/
-	-webkit-animation: rotateWord 18s linear infinite 0s;
-	-ms-animation: rotateWord 18s linear infinite 0s;
-	animation: rotateWord 18s linear infinite 0s;
+	-webkit-animation: rotateWord 15s linear infinite 0s;
+	-ms-animation: rotateWord 15s linear infinite 0s;
+	animation: rotateWord 15s linear infinite 0s;
 }
 .rw-words-1 span:nth-child(2) { 
     -webkit-animation-delay: 3s; 
