@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911102648) do
+ActiveRecord::Schema.define(version: 20140918095815) do
 
   create_table "accounts", force: true do |t|
     t.string   "first_name"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20140911102648) do
     t.date     "dob"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "balance"
+    t.decimal  "total_payments"
+    t.string   "stripe_id"
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
@@ -58,6 +61,15 @@ ActiveRecord::Schema.define(version: 20140911102648) do
 
   add_index "occasions", ["recipient_id"], name: "index_occasions_on_recipient_id"
 
+  create_table "payments", force: true do |t|
+    t.integer  "amount"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
   create_table "recipients", force: true do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -70,6 +82,8 @@ ActiveRecord::Schema.define(version: 20140911102648) do
     t.string   "relationship"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "recipients", ["user_id"], name: "index_recipients_on_user_id"

@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
 
@@ -5,8 +6,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'devise'
 gem 'simple_form'
+gem 'country_select'
 gem 'rolify'
 gem 'cancan'
+gem 'stripe'
+gem 'geocoder'
+gem 'gmaps4rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

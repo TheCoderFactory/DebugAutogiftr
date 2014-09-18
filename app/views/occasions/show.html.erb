@@ -25,5 +25,18 @@
   <%= @occasion.date %>
 </p>
 
+<h3>Add gifts</h3>
+<% @gifts.each do |gift| %>
+  <span class="label label-success">Add <%= link_to gift.name, add_gift_to_occasion_path(gift: gift.id) %></span>
+<% end %>
+
+<h3>Gifts added</h3>
+<ul>
+<% @occasion.gifts.each do |gift| %>
+  <li><%= gift.name %> <%= link_to '[remove]', remove_gift_from_occasion_path(gift: gift.id) %></li>
+<% end %>
+</ul>
+
+
 <%= link_to 'Edit', edit_occasion_path(@occasion) %> |
 <%= link_to 'Back', occasions_path %>

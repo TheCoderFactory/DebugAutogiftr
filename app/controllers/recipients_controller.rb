@@ -10,6 +10,7 @@ class RecipientsController < ApplicationController
   # GET /recipients/1
   # GET /recipients/1.json
   def show
+    @occasion = Occasion.new
   end
 
   # GET /recipients/new
@@ -25,6 +26,7 @@ class RecipientsController < ApplicationController
   # POST /recipients.json
   def create
     @recipient = Recipient.new(recipient_params)
+    @recipient.user = current_user
 
     respond_to do |format|
       if @recipient.save

@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
+  resources :payments, only: :create
   resources :gifts
 
-  resources :occasions
+  resources :occasions do
+    member do
+      get :add_gift_to
+      get :remove_gift_from
+    end
+  end
 
   resources :recipients
 
   resources :accounts
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   # get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

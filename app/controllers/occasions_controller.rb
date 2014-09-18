@@ -1,5 +1,17 @@
 class OccasionsController < ApplicationController
-  before_action :set_occasion, only: [:show, :edit, :update, :destroy]
+  before_action :set_occasion, only: [:remove_gift_from, :add_gift_to, :show, :edit, :update, :destroy]
+
+  def add_gift_to
+    @gift = Gift.find(params[:gift])
+    @occasion.gifts << @gift
+    current_user.account.add_to_balance(@gift.price)
+    redirect_to @occasion
+  end
+
+  def remove_gift_from
+    @occasion.gifts.delete(Gift.find(params[:gift]))
+    redirect_to @occasion
+  end
 
   # GET /occasions
   # GET /occasions.json
@@ -10,6 +22,7 @@ class OccasionsController < ApplicationController
   # GET /occasions/1
   # GET /occasions/1.json
   def show
+    @gifts = Gift.all
   end
 
   # GET /occasions/new
