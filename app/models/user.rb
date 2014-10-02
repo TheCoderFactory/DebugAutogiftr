@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_one :account
   has_many :recipients
   has_many :payments
   rolify
@@ -8,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :add_account
+  after create :add_account
 
   def add_account
   	self.account = Account.new

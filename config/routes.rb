@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :payments, only: :create
-  resources :gifts
+  resources: gifts
 
   resources :occasions do
     member do
